@@ -1,0 +1,17 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - echo "No frontend build needed for Docker"
+        build:
+          commands:
+            - docker build -t dash-app .
+            - docker tag dash-app:latest dash-app:latest
+      artifacts:
+        baseDirectory: /
+        files:
+          - '**/*'
+      cache:
+        paths: []
